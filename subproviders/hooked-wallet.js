@@ -571,7 +571,7 @@ HookedWalletSubprovider.prototype.finalizeAndSubmitTx = function(txParams, cb) {
     waterfall([
       (cb) => self.fillInTxExtras(txParams, cb),
       (extendTxParams, cb) => self.signTransaction(extendTxParams, cb),
-      (rawTx, cb) => self.publishTransaction(rawTx, cb),,
+      (rawTx, cb) => self.publishTransaction(rawTx, cb),
     ], function(err, txHash){
       self.nonceLock.leave()
       if (err) return cb(err)
